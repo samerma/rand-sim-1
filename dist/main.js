@@ -14,6 +14,11 @@ const render = function (todos) {
     })
 }
 
+/* $('#todos').on('click',".todo",function(){
+     $(this).closest('#todos').css('backgroundcolor','red')
+     $.get('/todos', todos => render(todos))
+})  */
+
 const add = function () {
     $.post('/todo', { text: $("#todo-input").val() }, function (todos) {
         render(todos)

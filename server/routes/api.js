@@ -1,5 +1,6 @@
 const express = require('express')
 const router = express.Router()
+const Todo = require("../../dist/todo.js")
 
 const todos = []
 let id = 1
@@ -10,7 +11,7 @@ router.get('/todos', function (req, res) {
 
 router.post('/todo', function (req, res) {
     const text = req.body.text
-    const newTodo = { id: id, text: text, complete: false }
+    const newTodo =  new Todo(id,text) /* { id: id, text: text, complete: false } */
     id++
     todos.push(newTodo)
     res.send(todos)
